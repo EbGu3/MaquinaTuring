@@ -32,8 +32,13 @@ namespace MaquinaTuring.Operation
                     {
                         for (int i = 0; i < LineRead.Length; i++)
                         {
+                            if(i == 0)
+                            {
+                                Data.Instance.ListOfString.Add("_");
+                            }
                             Data.Instance.ListOfString.Add(LineRead[i].ToString());
                         }
+                        Data.Instance.ListOfString.Add("_");
                     }
                     else
                     {
@@ -46,9 +51,6 @@ namespace MaquinaTuring.Operation
                             CharacterWrite = SplitLine[3],
                             HeadMovement = Convert.ToChar(SplitLine[4])
                         };
-                        
-
-                        
                        
                         if(Data.Instance.ListOfStates.Exists(x => x.IdState == newTransition.InitialState))
                         {

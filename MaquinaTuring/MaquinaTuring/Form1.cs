@@ -78,20 +78,23 @@ namespace MaquinaTuring
         {
             if(openFileDialog1.ShowDialog() == DialogResult.OK)
             {
+                
                 //Codigo de manejo del archivo
                 Data.Instance.Path = openFileDialog1.FileName;
                 dataGridView1.Rows.Add();
                 FileManagement file = new FileManagement();
                 file.LecturaArchivo(Data.Instance.Path);
 
+                dataGridView1.Rows[0].Cells[0].Value = "Alfabeto";
+                dataGridView1.Rows[1].Cells[0].Value = "Cabezal";
 
                 //Llenar el grid con estado inicial de la maquina
                 for (int i = 0; i < Data.Instance.ListOfString.Count(); i++)
                 {
-                    dataGridView1.Rows[0].Cells[i].Value = Data.Instance.ListOfString[i];
+                    dataGridView1.Rows[0].Cells[i + 1].Value = Data.Instance.ListOfString[i];
                     dataGridView1.Columns.Add("", "");
                 }
-                dataGridView1.Rows[1].Cells[0].Value = "^";
+                dataGridView1.Rows[1].Cells[1].Value = "^";
                 txtIdE.Text = Data.Instance.ListOfStates.Find(x => x.IdState == Data.Instance.FirstState).IdState;
 
             }
@@ -103,6 +106,11 @@ namespace MaquinaTuring
         }
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
         {
 
         }
