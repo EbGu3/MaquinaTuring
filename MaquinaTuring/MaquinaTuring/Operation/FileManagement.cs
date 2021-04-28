@@ -28,7 +28,7 @@ namespace MaquinaTuring.Operation
                     {
                         Data.Instance.FirstState = LineRead;
                     }
-                    else if(FileLocalitation == 2)
+                    else if(Regex.IsMatch(LineRead, @"^[_]?[a-zA-Z0-9\#$%&()[\]{}\/*\-+=?¿!¡]*[_]?$"))
                     {
                         for (int i = 0; i < LineRead.Length; i++)
                         {
@@ -75,6 +75,17 @@ namespace MaquinaTuring.Operation
                     }
                     LineRead = streamReader.ReadLine();
                     FileLocalitation++;
+                }
+
+                //Buscar cual es el primer nodo y asignar la transicion inicial
+                var searchState = Data.Instance.ListOfStates.Find(x => x.IdState == Data.Instance.FirstState);
+                if(searchState != null)
+                {
+                    var operation = new OperationText();
+                    foreach (var item in searchState.ListOfTransition)
+                    {
+                        operation.ToAssignActualState(item);
+                    }
                 }
              }                
         }

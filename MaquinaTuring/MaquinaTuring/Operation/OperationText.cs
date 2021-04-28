@@ -9,14 +9,15 @@ namespace MaquinaTuring.Operation
 {
     public class OperationText
     {
-           public Data ObtenerData(Data data)
+
+           //Estado actual que se encuentra la maquina
+           public void ToAssignActualState(Transition transition)
            {
-                var Cadena = "_hola";
-                for (int i = 0; i < Cadena.Length; i++)
-                {
-                    data.ListOfString.Add(Cadena[i].ToString());
-                }
-                return data;
+                Data.Instance.ActualState.ActualTransition.CharacterRead = transition.CharacterRead;
+                Data.Instance.ActualState.ActualTransition.CharacterWrite = transition.CharacterWrite;
+                Data.Instance.ActualState.ActualTransition.FinalState = transition.FinalState;
+                Data.Instance.ActualState.ActualTransition.InitialState = transition.InitialState;
+                Data.Instance.ActualState.ActualTransition.HeadMovement = transition.HeadMovement;
            }
     }
 }

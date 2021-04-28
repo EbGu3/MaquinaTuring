@@ -32,5 +32,7 @@ namespace MaquinaTuring.Models
         public int NumberState;
 
         public string FirstState;
+
+        public ActualState ActualState = new ActualState();
     }
 }

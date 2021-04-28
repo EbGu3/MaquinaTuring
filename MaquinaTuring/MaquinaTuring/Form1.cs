@@ -95,8 +95,15 @@ namespace MaquinaTuring
                     dataGridView1.Columns.Add("", "");
                 }
                 dataGridView1.Rows[1].Cells[1].Value = "^";
-                txtIdE.Text = Data.Instance.ListOfStates.Find(x => x.IdState == Data.Instance.FirstState).IdState;
 
+                //Asignar los valores a los txt
+                txtIdE.Text = Data.Instance.ListOfStates.Find(x => x.IdState == Data.Instance.FirstState).IdState;
+                txtInitialE.Text = Data.Instance.ActualState.ActualTransition.InitialState;
+                txtReadC.Text = Data.Instance.ActualState.ActualTransition.CharacterRead;
+                txtFinalE.Text = Data.Instance.ActualState.ActualTransition.FinalState;
+                txtWriteC.Text = Data.Instance.ActualState.ActualTransition.CharacterWrite;
+                txtMoveC.Text = Data.Instance.ActualState.ActualTransition.HeadMovement.ToString();
+                
             }
         }
 
