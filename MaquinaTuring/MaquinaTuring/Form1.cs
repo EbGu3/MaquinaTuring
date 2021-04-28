@@ -58,7 +58,21 @@ namespace MaquinaTuring
         {
             if(Data.Instance.Path != null)
             {
-                
+                OperationText operation = new OperationText();
+                operation.MovingTransition(txtIdE.Text);
+
+                dataGridView1.Rows[0].Cells[0].Value = "Alfabeto";
+                dataGridView1.Rows[1].Cells[0].Value = "Cabezal";
+
+                //Llenar el grid con estado inicial de la maquina
+                for (int i = 0; i < Data.Instance.ListOfString.Count(); i++)
+                {
+                    dataGridView1.Rows[0].Cells[i + 1].Value = Data.Instance.ListOfString[i];
+                    dataGridView1.Columns.Add("", "");
+                }
+                dataGridView1.Rows[1].Cells[1].Value = "";
+                dataGridView1.Rows[1].Cells[Data.Instance.HeadLocation].Value = "^";
+                PaintMoving(Data.Instance.HeadLocation);
 
             }
             else
@@ -67,8 +81,14 @@ namespace MaquinaTuring
             }
         }
 
+        public void PaintMoving(int cell)
+        {
+            dataGridView1.Rows[1].Cells[cell].Style.BackColor = Color.Blue;
+            dataGridView1.Rows[1].Cells[cell].Style.ForeColor = Color.White;
+        }
 
-        public void PaintNewMoving(int cell)
+
+        public void PaintInitialMoving(int cell)
         {
             dataGridView1.Rows[1].Cells[cell].Style.BackColor = Color.Black;
             dataGridView1.Rows[1].Cells[cell].Style.ForeColor = Color.White;
@@ -94,7 +114,8 @@ namespace MaquinaTuring
                     dataGridView1.Rows[0].Cells[i + 1].Value = Data.Instance.ListOfString[i];
                     dataGridView1.Columns.Add("", "");
                 }
-                dataGridView1.Rows[1].Cells[1].Value = "^";
+                dataGridView1.Rows[1].Cells[Data.Instance.HeadLocation].Value = "^";
+                PaintInitialMoving(Data.Instance.HeadLocation);
 
                 //Asignar los valores a los txt
                 txtIdE.Text = Data.Instance.ListOfStates.Find(x => x.IdState == Data.Instance.FirstState).IdState;
@@ -103,8 +124,8 @@ namespace MaquinaTuring
                 txtFinalE.Text = Data.Instance.ActualState.ActualTransition.FinalState;
                 txtWriteC.Text = Data.Instance.ActualState.ActualTransition.CharacterWrite;
                 txtMoveC.Text = Data.Instance.ActualState.ActualTransition.HeadMovement.ToString();
-                
             }
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)

@@ -12,29 +12,37 @@ namespace MaquinaTuring.Operation
     {
         public int Move(string movement, string stringWrite, Data data)
         {
-
-            switch(movement.ToLower())
+            try
             {
-                case "i" :
-                    if(data.HeadLocation != 0)
-                    {
-                        data.HeadLocation = data.HeadLocation - 1;
-                    }
-                    break;
+                switch (movement.ToLower())
+                {
+                    case "i":
+                        if (data.HeadLocation != 0)
+                        {
+                            data.HeadLocation = data.HeadLocation - 1;
+                        }
+                        break;
 
-                case "d":
-                    if (data.HeadLocation != data.ListOfString.Count)
-                    {
-                        data.HeadLocation = data.HeadLocation + 1;
-                    }
-                    break;
+                    case "d":
+                        if (data.HeadLocation != data.ListOfString.Count)
+                        {
+                            data.HeadLocation = data.HeadLocation + 1;
+                        }
+                        break;
 
-                case "p":
-                    data.HeadLocation = data.HeadLocation;
-                    break;
+                    case "p":
+                        data.HeadLocation = data.HeadLocation;
+                        break;
+                }
+
+                return data.HeadLocation;
             }
+            catch (Exception ex)
+            {
 
-            return data.HeadLocation;
+                throw;
+            }
+            
         }
 
     }
