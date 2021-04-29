@@ -20,18 +20,24 @@ namespace MaquinaTuring.Models
             }
         }
 
-        
-        public int HeadLocation {get; set;}
+        //Se encuentra el cabeza en (1,1)
+        public int HeadLocation { get; set; } = 1;
 
+        
         public List<State> ListOfStates = new List<State>();
+
 
         public List<string> ListOfString = new List<string>();
 
+
         public string Path;
+
 
         public int NumberState;
 
+
         public string FirstState;
+
 
         public ActualState ActualState = new ActualState();
 

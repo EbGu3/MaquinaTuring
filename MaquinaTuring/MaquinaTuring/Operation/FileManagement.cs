@@ -16,9 +16,9 @@ namespace MaquinaTuring.Operation
         { 
              using(StreamReader streamReader = new StreamReader(path))
              {
-                var LineRead = streamReader.ReadLine();
+                var LineRead = "";
                 var FileLocalitation = 0;
-                while(!streamReader.EndOfStream)
+                while(((LineRead = streamReader.ReadLine()) != null))
                 {
                     if(FileLocalitation == 0)
                     {
@@ -73,7 +73,6 @@ namespace MaquinaTuring.Operation
                             
                         }
                     }
-                    LineRead = streamReader.ReadLine();
                     FileLocalitation++;
                 }
 
