@@ -140,7 +140,7 @@ namespace MaquinaTuring
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = null;
+            
         
         }
        
