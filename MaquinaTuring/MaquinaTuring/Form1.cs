@@ -76,9 +76,14 @@ namespace MaquinaTuring
 
         private void btnUpload_Click(object sender, EventArgs e)
         {
-            if(openFileDialog1.ShowDialog() == DialogResult.OK)
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                
+                //Limpiar singleton
+                Data.ResetData();
+
                 //Codigo de manejo del archivo
                 Data.Instance.Path = openFileDialog1.FileName;
                 dataGridView1.Rows.Add();
