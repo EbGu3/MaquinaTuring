@@ -74,16 +74,31 @@ namespace MaquinaTuring
             dataGridView1.Rows[1].Cells[cell].Style.ForeColor = Color.White;
         }
 
+      
         private void btnUpload_Click(object sender, EventArgs e)
         {
-            if(openFileDialog1.ShowDialog() == DialogResult.OK)
+            //dataGridView1.Rows.Clear();
+            //dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+            //dataGridView1.Columns.Clear();
+            //dataGridView1.DataSource = null;
+            dataGridView1.Refresh();
+
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK )
             {
-                
+                //Limpiar singleton
+                Data.ResetData();
+
                 //Codigo de manejo del archivo
+               
                 Data.Instance.Path = openFileDialog1.FileName;
                 dataGridView1.Rows.Add();
+                
+               
+                
                 FileManagement file = new FileManagement();
-                file.LecturaArchivo(Data.Instance.Path);
+                file.LecturaArchivo( Data.Instance.Path);
 
                 dataGridView1.Rows[0].Cells[0].Value = "Alfabeto";
                 dataGridView1.Rows[1].Cells[0].Value = "Cabezal";
@@ -105,6 +120,7 @@ namespace MaquinaTuring
                 txtMoveC.Text = Data.Instance.ActualState.ActualTransition.HeadMovement.ToString();
                 
             }
+          
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -121,5 +137,12 @@ namespace MaquinaTuring
         {
 
         }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = null;
+        
+        }
+       
     }
 }

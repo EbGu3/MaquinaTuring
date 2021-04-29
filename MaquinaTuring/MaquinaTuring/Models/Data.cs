@@ -34,5 +34,10 @@ namespace MaquinaTuring.Models
         public string FirstState;
 
         public ActualState ActualState = new ActualState();
+
+        public static void ResetData()
+        {
+            _instance = new Data();
+        }
     }
 }
