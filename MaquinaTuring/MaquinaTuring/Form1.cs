@@ -56,7 +56,7 @@ namespace MaquinaTuring
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            if(Data.Instance.Path != null)
+            if (Data.Instance.Path != null)
             {
                 OperationText operation = new OperationText();
                 operation.MovingTransition(txtIdE.Text);
@@ -94,50 +94,62 @@ namespace MaquinaTuring
             dataGridView1.Rows[1].Cells[cell].Style.ForeColor = Color.White;
         }
 
+        /// <summary>
+        /// Método que inicializa el valor de listOfStrings del singleton a través 
+        /// del textBox txtCadena. 
+        /// </summary>
+        private void CargarCadena()
+        {
+            Data.Instance.ListOfString.Add("_");
+
+            foreach (var character in txtCadena.Text)
+                Data.Instance.ListOfString.Add(character.ToString());
+
+            Data.Instance.ListOfString.Add("_");
+        }
         private void btnUpload_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
             dataGridView1.Refresh();
 
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (txtCadena.Text != "")
             {
-                //Limpiar singleton
-                Data.ResetData();
 
-                Data.Instance.ListOfString.Add("_");
-                foreach (var character in txtCadena.Text)
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    Data.Instance.ListOfString.Add(character.ToString());
+
+                    Data.ResetData();
+                    CargarCadena();
+
+                    //Codigo de manejo del archivo
+                    Data.Instance.Path = openFileDialog1.FileName;
+                    dataGridView1.Rows.Add();
+                    FileManagement file = new FileManagement();
+                    file.LecturaArchivo(Data.Instance.Path);
+
+                    dataGridView1.Rows[0].Cells[0].Value = "Cadena";
+                    dataGridView1.Rows[1].Cells[0].Value = "Cabezal";
+
+                    //Llenar el grid con estado inicial de la maquina
+                    for (int i = 0; i < Data.Instance.ListOfString.Count(); i++)
+                    {
+                        dataGridView1.Rows[0].Cells[i + 1].Value = Data.Instance.ListOfString[i];
+                        dataGridView1.Columns.Add("", "");
+                    }
+                    dataGridView1.Rows[1].Cells[Data.Instance.HeadLocation].Value = "^";
+                    PaintInitialMoving(Data.Instance.HeadLocation);
+
+                    //Asignar los valores a los txt
+                    txtIdE.Text = Data.Instance.ListOfStates.Find(x => x.IdState == Data.Instance.FirstState).IdState;
+                    txtInitialE.Text = Data.Instance.ActualState.ActualTransition.InitialState;
+                    txtReadC.Text = Data.Instance.ActualState.ActualTransition.CharacterRead;
+                    txtFinalE.Text = Data.Instance.ActualState.ActualTransition.FinalState;
+                    txtWriteC.Text = Data.Instance.ActualState.ActualTransition.CharacterWrite;
+                    txtMoveC.Text = Data.Instance.ActualState.ActualTransition.HeadMovement.ToString();
                 }
-                Data.Instance.ListOfString.Add("_");
-                //Codigo de manejo del archivo
-                Data.Instance.Path = openFileDialog1.FileName;
-                dataGridView1.Rows.Add();
-                FileManagement file = new FileManagement();
-                file.LecturaArchivo(Data.Instance.Path);
-
-                dataGridView1.Rows[0].Cells[0].Value = "Cadena";
-                dataGridView1.Rows[1].Cells[0].Value = "Cabezal";
-
-                //Mandar esto a los botones para correr la prueba de la MT
-                //Llenar el grid con estado inicial de la maquina
-                for (int i = 0; i < Data.Instance.ListOfString.Count(); i++)
-                {
-                    dataGridView1.Rows[0].Cells[i + 1].Value = Data.Instance.ListOfString[i];
-                    dataGridView1.Columns.Add("", "");
-                }
-                dataGridView1.Rows[1].Cells[Data.Instance.HeadLocation].Value = "^";
-                PaintInitialMoving(Data.Instance.HeadLocation);
-
-                //Asignar los valores a los txt
-                txtIdE.Text = Data.Instance.ListOfStates.Find(x => x.IdState == Data.Instance.FirstState).IdState;
-                txtInitialE.Text = Data.Instance.ActualState.ActualTransition.InitialState;
-                txtReadC.Text = Data.Instance.ActualState.ActualTransition.CharacterRead;
-                txtFinalE.Text = Data.Instance.ActualState.ActualTransition.FinalState;
-                txtWriteC.Text = Data.Instance.ActualState.ActualTransition.CharacterWrite;
-                txtMoveC.Text = Data.Instance.ActualState.ActualTransition.HeadMovement.ToString();
             }
-            
+            else MessageBox.Show("Ingrese una cadena a evaluar para cargar un archivo");
+
         }
 
         private void Form1_Load(object sender, EventArgs e)

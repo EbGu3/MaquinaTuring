@@ -42,7 +42,9 @@ namespace MaquinaTuring.Models
 
         public ActualState ActualState = new ActualState();
 
-
+        /// <summary>
+        /// Limpieza del singleton en espera de la nueva máquina de Turing a ingresar. 
+        /// </summary>
         public static void ResetData()
         {
             _instance = new Data();
