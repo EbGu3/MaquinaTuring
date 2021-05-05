@@ -30,15 +30,16 @@ namespace MaquinaTuring.Operation
                     }
                     else if(Regex.IsMatch(LineRead, @"^[_]?[a-zA-Z0-9\#$%&()[\]{}\/*\-+=?¿!¡]*[_]?$"))
                     {
+                        //Asignar el alfabeto y ya no la cadena
                         for (int i = 0; i < LineRead.Length; i++)
                         {
-                            if(i == 0)
+                           /* if(i == 0)
                             {
-                                Data.Instance.ListOfString.Add("_");
-                            }
-                            Data.Instance.ListOfString.Add(LineRead[i].ToString());
+                                Data.Instance.ListOfAlphabet.Add("_");
+                            }*/
+                            Data.Instance.ListOfAlphabet.Add(LineRead[i].ToString());
                         }
-                        Data.Instance.ListOfString.Add("_");
+                        //Data.Instance.ListOfAlphabet.Add("_");
                     }
                     else
                     {

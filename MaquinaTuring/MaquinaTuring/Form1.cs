@@ -104,15 +104,22 @@ namespace MaquinaTuring
                 //Limpiar singleton
                 Data.ResetData();
 
+                Data.Instance.ListOfString.Add("_");
+                foreach (var character in txtCadena.Text)
+                {
+                    Data.Instance.ListOfString.Add(character.ToString());
+                }
+                Data.Instance.ListOfString.Add("_");
                 //Codigo de manejo del archivo
                 Data.Instance.Path = openFileDialog1.FileName;
                 dataGridView1.Rows.Add();
                 FileManagement file = new FileManagement();
                 file.LecturaArchivo(Data.Instance.Path);
 
-                dataGridView1.Rows[0].Cells[0].Value = "Alfabeto";
+                dataGridView1.Rows[0].Cells[0].Value = "Cadena";
                 dataGridView1.Rows[1].Cells[0].Value = "Cabezal";
 
+                //Mandar esto a los botones para correr la prueba de la MT
                 //Llenar el grid con estado inicial de la maquina
                 for (int i = 0; i < Data.Instance.ListOfString.Count(); i++)
                 {

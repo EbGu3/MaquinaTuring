@@ -26,6 +26,7 @@ namespace MaquinaTuring.Models
         
         public List<State> ListOfStates = new List<State>();
 
+        public List<string> ListOfAlphabet = new List<string>();
 
         public List<string> ListOfString = new List<string>();
 
