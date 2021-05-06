@@ -33,13 +33,10 @@ namespace MaquinaTuring.Operation
                         //Asignar el alfabeto y ya no la cadena
                         for (int i = 0; i < LineRead.Length; i++)
                         {
-                           /* if(i == 0)
-                            {
-                                Data.Instance.ListOfAlphabet.Add("_");
-                            }*/
+                          
                             Data.Instance.ListOfAlphabet.Add(LineRead[i].ToString());
                         }
-                        //Data.Instance.ListOfAlphabet.Add("_");
+                        
                     }
                     else
                     {
