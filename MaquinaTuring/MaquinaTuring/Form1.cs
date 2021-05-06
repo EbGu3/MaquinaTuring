@@ -61,7 +61,7 @@ namespace MaquinaTuring
                 OperationText operation = new OperationText();
                 operation.MovingTransition(txtIdE.Text);
 
-                dataGridView1.Rows[0].Cells[0].Value = "Alfabeto";
+                dataGridView1.Rows[0].Cells[0].Value = "Cadena";
                 dataGridView1.Rows[1].Cells[0].Value = "Cabezal";
 
                 //Llenar el grid con estado inicial de la maquina

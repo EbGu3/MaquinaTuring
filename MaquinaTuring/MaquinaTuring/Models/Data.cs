@@ -22,13 +22,25 @@ namespace MaquinaTuring.Models
 
         //Se encuentra el cabeza en (1,1)
         public int HeadLocation { get; set; } = 1;
+       
 
         
         public List<State> ListOfStates = new List<State>();
 
+
+
         public List<string> ListOfAlphabet = new List<string>();
 
         public List<string> ListOfString = new List<string>();
+        public string ListOfStringToString()
+        {
+            string retorno = "";
+            foreach (var item in ListOfString)
+            {
+                retorno += item;
+            }
+            return retorno;
+        }
 
 
         public string Path;

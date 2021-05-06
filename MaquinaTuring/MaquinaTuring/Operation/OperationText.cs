@@ -36,16 +36,17 @@ namespace MaquinaTuring.Operation
                     {
                         ToAssignActualState(ExistTransition);
                         HeadMoving headMoving = new HeadMoving();
-                    bool encontrarh = (ExistTransition.FinalState.ToLower() == "h");
+                    //bool encontrarh = (ExistTransition.FinalState.ToLower() == "h");
+                    bool encontrarh = (ExistTransition.HeadMovement.ToString().ToLower() == "p");
                     bool encontrar_ = (Data.Instance.ListOfString[Data.Instance.HeadLocation - 1] == "_");
                     if (encontrarh && encontrar_)
                         {
-                            headMoving.Move(ExistTransition.HeadMovement.ToString(), ExistTransition.CharacterWrite, Data.Instance);
+                            headMoving.Move(ExistTransition.HeadMovement.ToString(), ExistTransition.CharacterWrite, ExistTransition.CharacterRead, Data.Instance);
                             
                         }
                         else
                         {
-                            headMoving.Move(ExistTransition.HeadMovement.ToString(), ExistTransition.CharacterWrite, Data.Instance);
+                            headMoving.Move(ExistTransition.HeadMovement.ToString(), ExistTransition.CharacterWrite, ExistTransition.CharacterRead, Data.Instance);
                             MovingTransition(ExistTransition.FinalState);
                         }
                         
