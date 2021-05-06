@@ -34,6 +34,8 @@ namespace MaquinaTuring
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelCadena = new System.Windows.Forms.Label();
+            this.txtCadena = new System.Windows.Forms.TextBox();
             this.txtIdE = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -63,8 +65,6 @@ namespace MaquinaTuring
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label7 = new System.Windows.Forms.Label();
             this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
-            this.txtCadena = new System.Windows.Forms.TextBox();
-            this.labelCadena = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -82,19 +82,38 @@ namespace MaquinaTuring
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(2, 2);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(313, 206);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DATOS DEL ESTADO";
             // 
+            // labelCadena
+            // 
+            this.labelCadena.AutoSize = true;
+            this.labelCadena.BackColor = System.Drawing.Color.Transparent;
+            this.labelCadena.Location = new System.Drawing.Point(14, 108);
+            this.labelCadena.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCadena.Name = "labelCadena";
+            this.labelCadena.Size = new System.Drawing.Size(98, 13);
+            this.labelCadena.TabIndex = 3;
+            this.labelCadena.Text = "Cadena de entrada";
+            // 
+            // txtCadena
+            // 
+            this.txtCadena.Location = new System.Drawing.Point(143, 105);
+            this.txtCadena.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCadena.Name = "txtCadena";
+            this.txtCadena.Size = new System.Drawing.Size(158, 20);
+            this.txtCadena.TabIndex = 2;
+            // 
             // txtIdE
             // 
             this.txtIdE.Enabled = false;
             this.txtIdE.Location = new System.Drawing.Point(143, 31);
-            this.txtIdE.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtIdE.Margin = new System.Windows.Forms.Padding(2);
             this.txtIdE.Name = "txtIdE";
             this.txtIdE.Size = new System.Drawing.Size(158, 20);
             this.txtIdE.TabIndex = 1;
@@ -126,9 +145,9 @@ namespace MaquinaTuring
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(320, 2);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(306, 206);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
@@ -138,7 +157,7 @@ namespace MaquinaTuring
             // 
             this.txtMoveC.Enabled = false;
             this.txtMoveC.Location = new System.Drawing.Point(129, 160);
-            this.txtMoveC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMoveC.Margin = new System.Windows.Forms.Padding(2);
             this.txtMoveC.Name = "txtMoveC";
             this.txtMoveC.Size = new System.Drawing.Size(158, 20);
             this.txtMoveC.TabIndex = 9;
@@ -158,7 +177,7 @@ namespace MaquinaTuring
             // 
             this.txtWriteC.Enabled = false;
             this.txtWriteC.Location = new System.Drawing.Point(129, 129);
-            this.txtWriteC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtWriteC.Margin = new System.Windows.Forms.Padding(2);
             this.txtWriteC.Name = "txtWriteC";
             this.txtWriteC.Size = new System.Drawing.Size(158, 20);
             this.txtWriteC.TabIndex = 7;
@@ -178,7 +197,7 @@ namespace MaquinaTuring
             // 
             this.txtFinalE.Enabled = false;
             this.txtFinalE.Location = new System.Drawing.Point(129, 95);
-            this.txtFinalE.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtFinalE.Margin = new System.Windows.Forms.Padding(2);
             this.txtFinalE.Name = "txtFinalE";
             this.txtFinalE.Size = new System.Drawing.Size(158, 20);
             this.txtFinalE.TabIndex = 5;
@@ -198,7 +217,7 @@ namespace MaquinaTuring
             // 
             this.txtReadC.Enabled = false;
             this.txtReadC.Location = new System.Drawing.Point(129, 61);
-            this.txtReadC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtReadC.Margin = new System.Windows.Forms.Padding(2);
             this.txtReadC.Name = "txtReadC";
             this.txtReadC.Size = new System.Drawing.Size(158, 20);
             this.txtReadC.TabIndex = 3;
@@ -218,7 +237,7 @@ namespace MaquinaTuring
             // 
             this.txtInitialE.Enabled = false;
             this.txtInitialE.Location = new System.Drawing.Point(129, 31);
-            this.txtInitialE.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtInitialE.Margin = new System.Windows.Forms.Padding(2);
             this.txtInitialE.Name = "txtInitialE";
             this.txtInitialE.Size = new System.Drawing.Size(158, 20);
             this.txtInitialE.TabIndex = 1;
@@ -244,9 +263,9 @@ namespace MaquinaTuring
             this.groupBox3.Controls.Add(this.btnPlay);
             this.groupBox3.ForeColor = System.Drawing.Color.White;
             this.groupBox3.Location = new System.Drawing.Point(630, 2);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(275, 206);
             this.groupBox3.TabIndex = 10;
             this.groupBox3.TabStop = false;
@@ -272,7 +291,7 @@ namespace MaquinaTuring
             this.btnUpload.FlatAppearance.BorderSize = 2;
             this.btnUpload.Image = ((System.Drawing.Image)(resources.GetObject("btnUpload.Image")));
             this.btnUpload.Location = new System.Drawing.Point(116, 31);
-            this.btnUpload.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpload.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(40, 41);
             this.btnUpload.TabIndex = 4;
@@ -286,12 +305,13 @@ namespace MaquinaTuring
             this.btnNext.FlatAppearance.BorderSize = 2;
             this.btnNext.Image = ((System.Drawing.Image)(resources.GetObject("btnNext.Image")));
             this.btnNext.Location = new System.Drawing.Point(116, 136);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(2);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(40, 41);
             this.btnNext.TabIndex = 3;
             this.toolTip2.SetToolTip(this.btnNext, "Ejecutar paso a paso");
             this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click_1);
             // 
             // btnPlay
             // 
@@ -299,7 +319,7 @@ namespace MaquinaTuring
             this.btnPlay.FlatAppearance.BorderSize = 2;
             this.btnPlay.Image = ((System.Drawing.Image)(resources.GetObject("btnPlay.Image")));
             this.btnPlay.Location = new System.Drawing.Point(116, 84);
-            this.btnPlay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPlay.Margin = new System.Windows.Forms.Padding(2);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(40, 41);
             this.btnPlay.TabIndex = 0;
@@ -314,7 +334,7 @@ namespace MaquinaTuring
             this.panel3.Controls.Add(this.groupBox2);
             this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Location = new System.Drawing.Point(3, 207);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(908, 216);
             this.panel3.TabIndex = 1;
@@ -326,7 +346,7 @@ namespace MaquinaTuring
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(3, 86);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(908, 119);
             this.panel1.TabIndex = 2;
@@ -351,7 +371,7 @@ namespace MaquinaTuring
             this.Descripción,
             this.InitialString});
             this.dataGridView1.Location = new System.Drawing.Point(7, 16);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
@@ -393,25 +413,6 @@ namespace MaquinaTuring
             this.label7.TabIndex = 3;
             this.label7.Text = "Maquina Turing";
             // 
-            // txtCadena
-            // 
-            this.txtCadena.Location = new System.Drawing.Point(143, 105);
-            this.txtCadena.Margin = new System.Windows.Forms.Padding(2);
-            this.txtCadena.Name = "txtCadena";
-            this.txtCadena.Size = new System.Drawing.Size(158, 20);
-            this.txtCadena.TabIndex = 2;
-            // 
-            // labelCadena
-            // 
-            this.labelCadena.AutoSize = true;
-            this.labelCadena.BackColor = System.Drawing.Color.Transparent;
-            this.labelCadena.Location = new System.Drawing.Point(14, 108);
-            this.labelCadena.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelCadena.Name = "labelCadena";
-            this.labelCadena.Size = new System.Drawing.Size(98, 13);
-            this.labelCadena.TabIndex = 3;
-            this.labelCadena.Text = "Cadena de entrada";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -421,7 +422,7 @@ namespace MaquinaTuring
             this.Controls.Add(this.label7);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);

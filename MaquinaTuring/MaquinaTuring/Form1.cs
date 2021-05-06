@@ -159,6 +159,19 @@ namespace MaquinaTuring
 
         }
 
+        public void RemoveColor(int cell)
+        {
+            dataGridView1.Rows[1].Cells[cell].Style.BackColor = Color.Black;
+            dataGridView1.Rows[1].Cells[cell].Style.ForeColor = Color.White;
+            dataGridView1.Rows[1].Cells[cell].Value = " ";
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -172,6 +185,48 @@ namespace MaquinaTuring
         private void label8_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnNext_Click_1(object sender, EventArgs e)
+        {
+            if (Data.Instance.Path != null)
+            {
+                OperationText operation = new OperationText();
+                operation.MovingOneTransition(txtIdE.Text, Data.Instance.ListOfString[Data.Instance.HeadLocation - 1]);
+
+                dataGridView1.Rows[0].Cells[0].Value = "Cadena";
+                dataGridView1.Rows[1].Cells[0].Value = "Cabezal";
+
+                //Llenar el grid con estado inicial de la maquina
+                for (int i = 0; i < Data.Instance.ListOfString.Count(); i++)
+                {
+                    dataGridView1.Rows[0].Cells[i + 1].Value = Data.Instance.ListOfString[i];
+                    dataGridView1.Columns.Add("", "");
+                }
+                dataGridView1.Rows[1].Cells[1].Value = "";
+                dataGridView1.Rows[1].Cells[Data.Instance.HeadLocation].Value = "^";
+                RemoveColor(Data.Instance.HeadLocation - 1);
+                PaintMoving(Data.Instance.HeadLocation);
+                //Asignar los valores a los txt
+
+                if (!Data.Instance.isInHState)
+                {
+                    txtIdE.Text = Data.Instance.ListOfStates.Find(x => x.IdState == Data.Instance.ActualState.ActualTransition.FinalState).IdState;
+                    txtInitialE.Text = Data.Instance.ActualState.ActualTransition.InitialState;
+                    txtReadC.Text = Data.Instance.ActualState.ActualTransition.CharacterRead;
+                    txtFinalE.Text = Data.Instance.ActualState.ActualTransition.FinalState;
+                    txtWriteC.Text = Data.Instance.ActualState.ActualTransition.CharacterWrite;
+                    txtMoveC.Text = Data.Instance.ActualState.ActualTransition.HeadMovement.ToString();
+                }
+                    
+
+        
+
+            }
+            else
+            {
+                MessageBox.Show("No se a ingresado ningun archivo");
+            }
         }
     }
 }

@@ -27,13 +27,12 @@ namespace MaquinaTuring.Models
         
         public List<State> ListOfStates = new List<State>();
 
-
+        public bool isInHState = false;
 
         public List<string> ListOfAlphabet = new List<string>();
 
         public List<string> ListOfString = new List<string>();
-        
-        
+       
 
 
         public string Path;

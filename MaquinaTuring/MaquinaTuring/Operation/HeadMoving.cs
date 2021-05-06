@@ -13,7 +13,7 @@ namespace MaquinaTuring.Operation
 
         public int Move(string movement, string stringWrite, string stringReaded, Data data)
         {
-            var debugEstadoDeCadena = Data.Instance.ListOfStringToString();
+            
             try
             {
                 switch (movement.ToLower())
@@ -25,7 +25,7 @@ namespace MaquinaTuring.Operation
 
                             data.ListOfString[data.HeadLocation - 1] = stringWrite;
                             data.HeadLocation = data.HeadLocation - 1;
-                             
+                           
                         }
                         break;
 
