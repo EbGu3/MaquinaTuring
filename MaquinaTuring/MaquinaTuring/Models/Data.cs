@@ -27,20 +27,12 @@ namespace MaquinaTuring.Models
         
         public List<State> ListOfStates = new List<State>();
 
-
+        public bool isInHState = false;
 
         public List<string> ListOfAlphabet = new List<string>();
 
         public List<string> ListOfString = new List<string>();
-        public string ListOfStringToString()
-        {
-            string retorno = "";
-            foreach (var item in ListOfString)
-            {
-                retorno += item;
-            }
-            return retorno;
-        }
+       
 
 
         public string Path;

@@ -13,7 +13,7 @@ namespace MaquinaTuring.Operation
 
         public int Move(string movement, string stringWrite, string stringReaded, Data data)
         {
-            var debugEstadoDeCadena = Data.Instance.ListOfStringToString();
+            
             try
             {
                 switch (movement.ToLower())
@@ -25,8 +25,7 @@ namespace MaquinaTuring.Operation
 
                             data.ListOfString[data.HeadLocation - 1] = stringWrite;
                             data.HeadLocation = data.HeadLocation - 1;
-                            debugEstadoDeCadena = Data.Instance.ListOfStringToString();
-                            //Cambiar tambien el valor de la lista de strings... 
+                           
                         }
                         break;
 
@@ -35,7 +34,7 @@ namespace MaquinaTuring.Operation
                         {
                             data.ListOfString[data.HeadLocation - 1] = stringWrite;
                             data.HeadLocation = data.HeadLocation + 1;
-                            debugEstadoDeCadena = Data.Instance.ListOfStringToString();
+                            
                         }
                         break;
 
@@ -43,12 +42,12 @@ namespace MaquinaTuring.Operation
 
                         data.ListOfString[data.HeadLocation - 1] = stringWrite;
                         data.HeadLocation = data.HeadLocation;
-                        debugEstadoDeCadena = Data.Instance.ListOfStringToString();
+                       
                         break;
                     case "O":
                         data.ListOfString[data.HeadLocation - 1] = stringWrite;
                         data.HeadLocation = data.HeadLocation; //Sola mente considerar que el cabezal no se mueva. 
-                        debugEstadoDeCadena = Data.Instance.ListOfStringToString();
+                       
                         break;
                 }
 
